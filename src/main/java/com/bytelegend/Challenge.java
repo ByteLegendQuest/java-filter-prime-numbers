@@ -29,10 +29,10 @@ public class Challenge {
         else {
             List<Integer> result = new ArrayList<>();
             result.add(2);
-            for (int x = 3; x <= end; x++) {
+            label : for (int x = 3; x <= end; x++) {
                 for (int y = 2; y <= Double.valueOf(Math.sqrt(x)).intValue(); y++) {
                     if (0 == x % y) {
-                        break;
+                        continue label;
                     }
                 }
                 result.add(x);
