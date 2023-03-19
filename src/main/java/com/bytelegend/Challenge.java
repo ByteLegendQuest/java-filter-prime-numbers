@@ -1,7 +1,6 @@
 package com.bytelegend;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class Challenge {
     public static void main(String[] args) {
@@ -21,16 +20,6 @@ public class Challenge {
      * and `Math.sqrt(n)`, then `n` is a prime number.
      */
     public static int[] filterPrimeNumbers(int start, int end) {
-        return IntStream.rangeClosed(start, end).filter(Challenge::isPrime).toArray();
-    }
-
-    // 定义一个静态方法isPrime，接受一个整型参数number，返回一个布尔值表示number是否是质数
-    public static boolean isPrime(int number) {
-        // 如果number小于2，直接返回false，因为2是最小的质数
-        if (number < 2) {
-            return false;
-        }
-        // 使用IntStream类的rangeClosed方法生成从2到number/2的整数流，并使用noneMatch方法检查是否没有任何元素能够被number整除
-        return IntStream.rangeClosed(2, number / 2).noneMatch(i -> number % i == 0);
+        return null;
     }
 }
