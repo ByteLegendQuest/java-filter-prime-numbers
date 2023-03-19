@@ -21,7 +21,7 @@ public class Challenge {
      * and `Math.sqrt(n)`, then `n` is a prime number.
      */
     public static int[] filterPrimeNumbers(int start, int end) {
-        return IntStream.rangeClosed(start, end).filter(Main::isPrime).toArray();
+        return IntStream.rangeClosed(start, end).filter(Challenge::isPrime).toArray();
     }
 
     // 定义一个静态方法isPrime，接受一个整型参数number，返回一个布尔值表示number是否是质数
