@@ -20,6 +20,23 @@ public class Challenge {
      * and `Math.sqrt(n)`, then `n` is a prime number.
      */
     public static int[] filterPrimeNumbers(int start, int end) {
-        return null;
+        int[] result = new int[end - start + 1];
+        int count = 0;
+        for (int i = start; i <= end; i++) {
+            // 判断数字是否为素数
+            boolean isPrime = true;
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            // 将素数加入数组中
+            if (isPrime && i > 1) {
+                result[count++] = i;
+            }
+        }
+        // 精简数组
+        return Arrays.copyOfRange(result, 0, count);
     }
 }
