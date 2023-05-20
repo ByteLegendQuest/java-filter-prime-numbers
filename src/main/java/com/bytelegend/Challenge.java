@@ -23,6 +23,6 @@ public class Challenge {
      */
     public static int[] filterPrimeNumbers(int start, int end) {
         return Stream.iterate(BigInteger.valueOf(start- 1L), BigInteger::nextProbablePrime)
-            .skip(1).mapToInt(b -> (int) b.longValue).takeWhile(p -> p <= end).toArray();
+            .skip(1).mapToInt(b -> (int) b.longValue()).takeWhile(p -> p <= end).toArray();
     }
 }
