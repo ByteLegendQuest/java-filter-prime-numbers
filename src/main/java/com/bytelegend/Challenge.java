@@ -22,7 +22,7 @@ public class Challenge {
      * and `Math.sqrt(n)`, then `n` is a prime number.
      */
     public static int[] filterPrimeNumbers(int start, int end) {
-        return Stream.iterate(BigInteger.valueOf(start - 1L), BigInteger::nextProbablePrime)
+        return Stream.iterate(BigInteger.valueOf(start), BigInteger::nextProbablePrime)
             .skip(1).mapToInt(b -> (int) b.longValue()).takeWhile(p -> p <= end).toArray();
     }
 }
