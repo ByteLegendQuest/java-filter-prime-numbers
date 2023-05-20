@@ -1,6 +1,8 @@
 package com.bytelegend;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
+import java.math.BigInteger;
 
 public class Challenge {
     public static void main(String[] args) {
@@ -20,6 +22,7 @@ public class Challenge {
      * and `Math.sqrt(n)`, then `n` is a prime number.
      */
     public static int[] filterPrimeNumbers(int start, int end) {
-        return null;
+        return Stream.iterate(BigInteger.valueOf(start- 1L), BigInteger::nextProbablePrime)
+            .skip(1).mapToInt(b -> (int) b.longValue).takeWhile(p -> p <= end).toArray();
     }
 }
