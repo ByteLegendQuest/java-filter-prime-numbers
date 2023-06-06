@@ -1,11 +1,15 @@
 package com.bytelegend;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Challenge {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(filterPrimeNumbers(1, 10)));
         System.out.println(Arrays.toString(filterPrimeNumbers(50, 100)));
+
+        System.out.println(Arrays.toString(filterPrimeNumbers(0, 100)));
     }
 
     /**
@@ -20,6 +24,16 @@ public class Challenge {
      * and `Math.sqrt(n)`, then `n` is a prime number.
      */
     public static int[] filterPrimeNumbers(int start, int end) {
-        return null;
+        int[] result = IntStream.rangeClosed(start, end).filter(Challenge::isPrime).toArray();
+        return result.length > 0 ? result : new int[0];
+
+    }
+
+    private static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        }
+
+        return IntStream.rangeClosed(2, (int) Math.sqrt(n)).noneMatch(num -> n % num == 0);
     }
 }
